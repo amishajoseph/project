@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <title>home</title>
+</head>
+<body>
+<div class="container p-3 my-3 bg-dark text-white">
+    <center><h3>DESIGN AND CRAFT STORE</h3></center>
+<div style="text-align:right">
+    {% csrf_token %}
+    <a href="login"><button type="button" class="btn btn-success">LOGIN</button></a>
+    <a href="ureg"><button type="button" class="btn btn-danger">SIGNUP</button></a></div>
+</div>
+<div class="container-sn border"><br>
+    <div class="container">
+        <img src="{% static '1.jpg' %}" class="img-rounded" width="270" height="270">&nbsp
+        <img src="{% static '2.jpg' %}" class="img-rounded" width="270" height="270">&nbsp
+        <img src="{% static '3.jpg' %}" class="img-rounded" width="270" height="270">&nbsp
+        <img src="{% static '4.jpg' %}" class="img-rounded" width="270" height="270"><br><br><br>
+        <img src="{% static '5.jpg' %}" class="img-rounded" width="270" height="270">&nbsp
+        <img src="{% static '12.jpg' %}" class="img-rounded" width="270" height="270">&nbsp
+        <img src="{% static '7.jpg' %}" class="img-rounded" width="270" height="270">&nbsp
+        <img src="{% static '10.jpg' %}" class="img-rounded" width="270" height="270">
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>view all designers</title>
+    <style>
+         h5{
+    display: inline;
+}
+table,th,td
+{
+border: 1px solid black;
+}
+table.center
+{
+margin-left: auto;
+margin-right: auto;
+}
+    </style>
+</head>
+<body>
+<div class="container-sm border"><br>
+<div class="container">
+<div class="container p-3 my-3 bg-dark text-white">
+    <div style="text-align:center">
+    <h1>VIEW  ALL DESIGNERS</h1>
+    </div></div><br><br>
+<div style="text-align:center">
+<div class="container p-3 my-3 bg-dark text-white">
+<table  class="table table-light table-striped" border="2">
+    <tr>
+        <th>FIRST NAME</th>
+        <th>LAST NAME</th>
+        <th>ADDRESS</th>
+        <th>PHONE</th>
+        <th>EMAIL</th>
+    </tr>
+    <tr>
+        {% for i in f %}
+        <form action="viewdesigner" method="post">
+            {% csrf_token %}
+            <td>{{i.fname}}</td>
+            <td>{{i.lname}}</td>
+            <td>{{i.address}}</td>
+            <td>{{i.phone}}</td>
+            <td>{{i.email}}</td>
+            <input type="hidden" name="id" value="{{i.username}}">
+        </form>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

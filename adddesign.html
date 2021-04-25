@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>adddesign</title>
+</head>
+<body>
+<center><h1>Add Designes</h1></center>
+<form action="abc" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div style="text-align:center">
+        Category:<input type="text" name="ddesign"><br>
+        Sub Category:<input type="text" name="subdesign"><br>
+        Product Name:<input type="text" name="proname"><br>
+        Product Description:<input type="text" name="prodis"><br>
+        Product Price:<input type="text" name="price"><br>
+        Product Shipping Charge:<input type="text" name="shipping"><br>
+        Product Image1:<input type="file" name="file"><br>
+        Product Image2:<input type="file" name="file1"><br>
+        Product Image3:<input type="file" name="file2"><br>
+        <input type="submit"  value="CREATE">
+    </div>
+</form>
+</body>
+</html>

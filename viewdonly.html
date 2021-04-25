@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>VIEW PRODUCTS</title>
+    <style>
+        h5{
+    display: inline;
+}
+table,th,td
+{
+border: 1px solid black;
+}
+table.center
+{
+margin-left: auto;
+margin-right: auto;
+}
+    </style>
+</head>
+<body>
+<form action="cart1" method="post">
+    {% csrf_token %}
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <ul class="navbar-nav">
+    <li class="nav-item active">
+      <a class="nav-link" href="home1">Home</a>
+    </li>
+    <li class="nav-item active">
+      <a class="nav-link" href="search">Design</a>
+    </li>
+  </ul>
+</nav>
+    <div style="text-align:center">
+</div><br>
+<div class="container p-1 my-1 bg-secondary text-white"><br>
+<div class="container">
+<div class="col" style="background-color:white;">
+<table class="table table-dark table-striped" border="1">
+    <tr>{% for i in data1 %}
+     <center><img src="{{i.photo1.url}}" height="400" width="400"></center></tr>
+
+<tr><br><br>
+    <th>CATEGORY</th>
+    <td>{{i.ddesign}}</td>
+    <input type="hidden" name="id" value="{{i.id}}">
+</tr>
+<tr>
+    <th>SUB CATEGORY</th>
+    <td>{{i.subdesign}}</td>
+    <input type="hidden" name="id" value="{{i.id}}">
+</tr>
+<tr>
+    <th>PRODUCT NAME</th>
+    <td>{{i.proname}}</td>
+    <input type="hidden" name="id" value="{{i.id}}">
+</tr>
+    <tr>
+    <th>PRODUCT DISCRIPTION</th>
+    <td>{{i.prodis}}</td>
+        <input type="hidden" name="id" value="{{i.id}}">
+</tr>
+<tr>
+    <th>PRICE</th>
+    <td>{{i.price}}</td>
+    <input type="hidden" name="id" value="{{i.id}}">
+</tr>
+<tr>
+    <th>SHIPPING CHARGE</th>
+    <td>{{i.shipping}}</td>
+    <input type="hidden" name="id" value="{{i.id}}">
+</tr>
+    <tr>
+    <th>SIZE</th>
+    <td><select name="size">
+        <option value="XS">XS</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+        <option value="XXL">XXL</option>
+        </select>
+    </td>
+    <input type="hidden" name="id" value="{{i.id}}">
+</tr>
+     <tr>
+    <th>QUANTITY</th>
+    <td><select name="qty">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        </select>
+    </td>
+    <input type="hidden" name="id" value="{{i.id}}">
+</tr>
+    {% endfor %}
+    </table>
+    </form>
+        <center><button type="submit" class="btn btn-danger">ADD TO CART</button></center>
+</div></div></div>
+</body>
+</html>

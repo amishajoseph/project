@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>cart details</title>
+    <style>
+        h5{
+    display: inline;
+}
+table,th,td
+{
+border: 1px solid black;
+}
+table.center
+{
+margin-left: auto;
+margin-right: auto;
+}
+    </style>
+</head>
+<body>
+<div style="text-align:center">
+<div class="container p-3 my-3 bg-dark text-white">
+<h3>D&C STORE</h3>
+</div></div>
+<div style="text-align:center">
+<div class="container p-3 my-3 bg-light text-dark">
+<h5>Your Cart</h5>
+    <div style="text-align:left">
+        <a href="home1"><button type="submit" class="btn btn-primary">Home</button></a>
+    </div>
+</div>
+</div>
+<table class="table table-dark table-striped" border="1">
+    <tr>
+        <th>Product Image</th>
+        <th>Product Name</th>
+        <th>Product Description</th>
+        <th>Size</th>
+        <th>Quantity</th>
+        <th>Product Price</th>
+        <th>Shipping Charge</th>
+        <th>Grant Total</th>
+    </tr>
+    <tr>
+        {% for i in data %}
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{i.id}}">
+        <td><img src="{{i.did.photo.url}}" height="70" width="70"></td>
+        <td>{{i.did.proname}}</td>
+        <td>{{i.did.prodis}}</td>
+        <td>{{i.size}}</td>
+        <td>{{i.qty}}</td>
+        <td>{{i.did.price}}</td>
+        <td>{{i.did.shipping}}</td>
+        <td>{{i.gtotal}}</td>
+    </tr>
+        {% endfor %}
+     <tr>
+        {% for i in data1 %}
+        {% csrf_token %}
+        <input type="hidden" name="id" value="{{i.id}}">
+        <td><img src="{{i.cid.cphoto.url}}" height="70" width="70"></td>
+        <td>{{i.cid.craftname}}</td>
+        <td>{{i.cid.craftdis}}</td>
+         <td>{{i.size}}</td>
+         <td>{{i.qty}}</td>
+        <td>{{i.cid.cprice}}</td>
+        <td>{{i.cid.cshipping}}</td>
+        <td>{{i.gtotal}}</td>
+    </tr>
+    {% endfor %}
+</table>
+<center><button type="submit" class="btn btn-danger">Buy Now</button></center>
+</body>
+</html>

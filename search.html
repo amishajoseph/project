@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>search design</title>
+    <style>
+        table,th,td{
+        border:1px solid black;
+        }
+        table.center{
+        margin-left: auto;
+        margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+<div style="text-align:center">
+<div class="container p-3 my-3 bg-dark text-white">
+<h3>D&C STORE</h3>
+</div></div>
+<div style="text-align:center">
+<div class="container p-3 my-3 bg-light text-dark">
+<h5>View Design</h5>
+    <div style="text-align:left">
+        <a href="home1"><button type="submit" class="btn btn-primary">Home</button></a>&nbsp&nbsp
+        <a href="cartdetails"><button type="submit" class="btn btn-primary">Go To Cart</button></a>
+    </div>
+
+</div></div>
+<br>
+<div class="container">
+<center>
+    Search Here<form action="sea" method="post">
+    {% csrf_token %}
+    <select name="id" style="width:250px">
+        {% for i in s %}
+        <option value="{{i.id}}">{{i.proname}}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" name="submit" value="Search"><br><br>
+</form>
+</center>
+<table class="table table-dark table-striped" border="1">
+    <tr>
+        <th>Product Name</th>
+        <th>Product Description</th>
+        <th>Product Price</th>
+        <th>Product Image</th>
+        <th>view</th>
+    </tr>
+    <tr>
+        {% for i in s %}
+        <form action="viewdonly" method="post">
+            {% csrf_token %}
+        <!--<td><input type="submit" value="{{i.proname}}" name="proname"</td>-->
+        <input type="hidden" name="id" value="{{i.id}}">
+        <td>{{i.proname}}</td>
+        <td>{{i.prodis}}</td>
+        <td>{{i.price}}</td>
+        <td><img src="{{i.photo.url}}" height="70" width="70"></td>
+        <td><a href="viewdonly"><button type="submit" name="view" >view</button></a></td>
+        </form>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+</body>
+</html>

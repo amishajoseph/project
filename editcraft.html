@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>edit craft</title>
+</head>
+<body>
+<div style="text-align:center">
+<div class="container p-3 my-3 bg-dark text-white">
+<h3>D&C STORE</h3>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="crafterhome">Home</a>
+      </li>
+    </ul>
+</nav>
+    </div></div>
+<center><h4>ADD CRAFTS</h4></center>
+<form action="updated" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        <input type="hidden" value="{{data.id}}" name="id">
+    <div class="form-group">
+      <div style="text-align:left">
+          <label for="craft"><b>Category:</b></label>
+        <input type="text" id="craft" name="craft" value="{{data.craft}}" class="form-control"  placeholder="Category">
+           </div></div>
+    <div class="form-group">
+      <div style="text-align:left">
+      <label for="subcraft"><b>Sub Category:</b></label>
+        <input type="text" id="subcraft" name="subcraft" value="{{data.subcraft}}" class="form-control"  placeholder="Subcategory">
+          </div></div>
+    <div class="form-group">
+      <div style="text-align:left">
+      <label for="craftname"><b>Product Name:</b></label>
+      <input type="text" id="craftname" name="craftname" value="{{data.craftname}}" class="form-control"  placeholder="Product Name">
+          </div></div>
+    <div class="form-group">
+      <div style="text-align:left">
+      <label for="craftdis"><b>Product Discreption</b></label>
+      <input type="craftdis" id="craftdis" name="craftdis" value="{{data.craftdis}}" class="form-control"  placeholder="Discription">
+          </div></div>
+    <div class="form-group">
+      <div style="text-align:left">
+      <label for="cprice"><b>Product Price</b></label>
+      <input type="cprice" id="cprice" name="cprice" value="{{data.cprice}}" class="form-control"  placeholder="Price">
+          </div></div>
+    <div class="form-group">
+      <div style="text-align:left">
+      <label for="cshipping"><b>Shipping Chargee</b></label>
+      <input type="cshipping" id="cshipping" name="cshipping" value="{{data.cshipping}}" class="form-control"  placeholder="Shipping Charge">
+          </div></div>
+    <div style="text-align:left">
+      <label for="cphoto"><b>Image1</b></label>
+      <input type="file" id="cphoto" name="file"  class="form-control"  placeholder="Image 1">
+      </div></div>
+    <div style="text-align:left">
+      <label for="cphoto1"><b>Image2</b></label>
+      <input type="file" id="cphoto1" name="file"  class="form-control"  placeholder="Image 2">
+      </div></div>
+    <div style="text-align:left">
+      <label for="cphoto2"><b>Image3</b></label>
+      <input type="file" id="cphoto2" name="file"  class="form-control"  placeholder="Image 3">
+      </div></div>
+            <div style="text-align:center">
+                <input type="submit" name="update" value="UPDATE" style="margin-left: 16px" >
+            </div>
+    </div>
+</form>
+</body>
+</html>

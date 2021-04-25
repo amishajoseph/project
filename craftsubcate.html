@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title> sub category</title>
+</head>
+<body>
+<div style="text-align:center">
+<div class="container p-3 my-3 bg-dark text-white">
+<h3>D&C STORE</h3>
+</div></div>
+<div style="text-align:center">
+<div class="container p-3 my-3 bg-light text-dark">
+<h5>Add Sub Category</h5>
+</div></div>
+<form action="craftsubcatego" method="post">
+    {% csrf_token %}
+<div class="col" style="background-color:white;">
+      <div class="form-group">
+      <div style="text-align:left">
+      <label for="craftstype"><b>CATEGORY:</b></label>
+      <input type="text" id="craftstype" name="craftstype" class="form-control"  placeholder="Enter Category">
+      </div></div>
+    <div class="form-group">
+      <div style="text-align:left">
+    <label for="craftsubtype"><b>SUB CATEGORY:</b></label>
+    <input type="text" id="craftsubtype" name="craftsubtype" class="form-control"  placeholder="Description">
+    </div></div>
+    <button type="submit" class="btn btn-success">CREATE</button>
+    </div>
+    </div>
+    </div>
+</div>
+</form>
+</body>
+</html>
+
+

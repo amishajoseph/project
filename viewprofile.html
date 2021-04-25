@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>view profile</title>
+    <style>
+          h5{
+    display: inline;
+}
+table,th,td
+{
+border: 1px solid black;
+}
+table.center
+{
+margin-left: auto;
+margin-right: auto;
+}
+    </style>
+</head>
+<body>
+<div style="text-align:center">
+<div class="container p-3 my-3 bg-dark text-white">
+<h3>D&C STORE</h3><br><br>
+</div></div>
+<div style="text-align:center">
+    {% csrf_token %}
+    <a href="home1"><button type="button" class="btn btn-success">HOME</button></a>
+    <a href="logout"><button type="button" class="btn btn-success">LOGOUT</button></a>
+</div>
+<div class="container-sm border"><br>
+<div class="container">
+<div class="container p-3 my-3 bg-light text-danger">
+    <div style="text-align:center">
+    <h4>MY PROFILE</h4>
+    </div></div>
+<div style="text-align:center">
+<table  class="table table-secondary table-striped" border="2">
+<form action="viewprofile" method="post">
+    {% csrf_token %}
+    <tr>{% for i in data %}
+<tr>
+    <th>FIRST NAME</th>
+    <td>{{i.fname}}</td>
+</tr>
+<tr>
+    <th>LAST NAME</th>
+    <td>{{i.lname}}</td>
+</tr>
+<tr>
+    <th>EMAIL</th>
+    <td>{{i.email}}</td>
+</tr>
+    <tr>
+    <th>PHONE</th>
+    <td>{{i.phone}}</td>
+</tr>
+<tr>
+    <th>ADDRESS</th>
+    <td>{{i.address}}</td>
+</tr>
+    {% endfor %}
+</form>
+    </table>
+</div>
+</div>
+</div>
+</body>
+</html>

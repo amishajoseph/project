@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>addcraft</title>
+</head>
+<body>
+<form action="craft" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div style="text-align:center">
+        Category:<input type="text" name="craft"><br>
+        Sub Category:<input type="text" name="subcraft"><br>
+        Product Name:<input type="text" name="craftname"><br>
+        Product Description:<input type="text" name="craftdis"><br>
+        Product Price:<input type="text" name="cprice"><br>
+        Product Shipping Charge:<input type="text" name="cshipping"><br>
+        Product Image1:<input type="file" name="file"><br>
+        Product Image2:<input type="file" name="file1"><br>
+        Product Image3:<input type="file" name="file2"><br>
+        <input type="submit"  value="CREATE">
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>uhome</title>
+    <style>
+          h5{
+    display: inline;
+}
+table,th,td
+{
+border: 1px solid black;
+}
+table.center
+{
+margin-left: auto;
+margin-right: auto;
+}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="container p-3 my-3 bg-dark text-white">
+<div style="text-align:center">
+<h1>D&C STORE</h1>
+</div></div>
+    <div class="container">
+        <div class="btn-group">
+            <a href="reqde"><button type="submit" class="btn btn-danger">Request For Designer</button></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <a href="reqcraft"><button type="submit" class="btn btn-danger">Request For Crafter</button></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <a href="viewprofile"><button type="submit" class="btn btn-danger">View Profile</button></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <a href="logout"><button type="submit" class="btn btn-danger">Logout</button></a><br><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <a href="cartdetails"><button type="submit" class="btn btn-danger">Go To Cart</button></a>
+  </div>
+</div>
+<center>
+    <a href="search"><button type="submit" class="btn btn-success">Design</button></a>
+    <a href="searchc"><button type="submit" class="btn btn-success">Craft</button></a>
+</center><br>
+<div style="text-align:center">
+<div class="container p-3 my-3 bg-dark text-white">
+<table  class="table table-light table-striped" border="2">
+    <tr>
+        <th>Product Name</th>
+        <th>Product Description</th>
+        <th>Product Price</th>
+        <th>Product Shipping Charge</th>
+        <th>Product Image</th>
+    </tr>
+    <tr>
+        {% for i in f %}
+        <form action="view" method="post">
+            {% csrf_token %}
+        <td><input type="submit" value="{{i.proname}}" name="proname"</td>
+        <input type="hidden" name="id" value="{{i.id}}">
+        <td>{{i.prodis}}</td>
+        <td>{{i.price}}</td>
+        <td>{{i.shipping}}</td>
+        <td><img src="{{i.photo.url}}" height="70" width="70"></td>
+    </tr>
+    </form>
+{% endfor %}
+     <tr>
+        {% for i in c %}
+         <form action="view" method="post">
+             {% csrf_token %}
+        <td><input type="submit" value="{{i.craftname}}" name="craftname"</td>
+             <input type="hidden" name="id" value="{{i.id}}">
+        <td>{{i.craftdis}}</td>
+        <td>{{i.cprice}}</td>
+        <td>{{i.cshipping}}</td>
+        <td><img src="{{i.cphoto.url}}" height="70" width="70"></td>
+    </tr>
+    </form>
+    {% endfor %}
+
+</table>
+</div>
+</div>
+</div>
+</body>
+</html>
